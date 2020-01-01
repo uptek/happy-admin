@@ -8,8 +8,6 @@
 **License:** GPLv3 or later <br/>
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html <br/>
 
-Happy Admin simplify your WordPress admin.
-
 ## Installation ##
 
  This section describes how to install the plugin and get it working. 
