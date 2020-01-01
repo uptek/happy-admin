@@ -1,3 +1,8 @@
-
+body.admin-color-fresh #adminmenu .menu-top li .update-plugins {
+  background: #505050; }
+body.admin-color-fresh #adminmenu .menu-top li a .update-plugins {
+  background: #505050; }
+body.admin-color-fresh #adminmenu .menu-top li a .wp-menu-image img {
+  filter: grayscale(1); }
 
 /*# sourceMappingURL=happy-admin.css.map */

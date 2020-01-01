@@ -1,0 +1,28 @@
+body {
+    &.admin-color-fresh {
+        #adminmenu {
+            .menu-top {
+                li {
+                    .update-plugins {
+                        background:#505050;
+                    }
+                    a {
+                        .wp-menu-name {
+                            
+                        }
+                        .update-plugins {
+                            background:#505050;
+                        }
+
+                        .wp-menu-image {
+                            img {
+                                filter: grayscale(1);
+                            }
+                        }
+                    } 
+                }
+                          
+            }
+        }
+    }
+}
