@@ -40,6 +40,11 @@ class Happyadmin_Admin {
 	 */
 	private $version;
 
+
+	public function remove_admin_notices( ) {
+		remove_all_actions( 'admin_notices' );
+	} 
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -51,6 +56,9 @@ class Happyadmin_Admin {
 
 		$this->Happy_admin = $Happy_admin;
 		$this->version = $version;
+	
+		add_action( 'admin_head', array( $this, 'remove_admin_notices' ) );
+		
 
 	}
 

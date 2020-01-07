@@ -1,8 +1,28 @@
-body.admin-color-fresh #adminmenu .menu-top li .update-plugins {
+body.admin-color-fresh #adminmenu li.menu-top .update-plugins {
   background: #505050; }
-body.admin-color-fresh #adminmenu .menu-top li a .update-plugins {
+body.admin-color-fresh #adminmenu li.menu-top a .wp-menu-name span {
   background: #505050; }
-body.admin-color-fresh #adminmenu .menu-top li a .wp-menu-image img {
-  filter: grayscale(1); }
+body.admin-color-fresh #adminmenu li.menu-top a .update-plugins {
+  background: #505050; }
+body.admin-color-fresh #adminmenu li.menu-top a .wp-menu-image img {
+  filter: grayscale(1) !important; }
+body.admin-color-fresh .plugins .notice {
+  border-left-color: #444; }
+body.admin-color-fresh .plugins .active th.check-column {
+  border-left-color: #444; }
+body.admin-color-fresh .plugins .active td, body.admin-color-fresh .plugins .active th {
+  background: none; }
+body.admin-color-fresh .plugins .plugin-update-tr.active td {
+  border-left-color: #444; }
+body.admin-color-fresh a {
+  color: #444; }
+body.factory-flat #adminmenu li.menu-top .update-plugins {
+  background: #505050; }
+body.factory-flat #adminmenu li.menu-top a .wp-menu-name span {
+  background: #505050; }
+body.factory-flat #adminmenu li.menu-top a .update-plugins {
+  background: #505050; }
+body.factory-flat #adminmenu li.menu-top a .wp-menu-image img {
+  filter: grayscale(1) !important; }
 
 /*# sourceMappingURL=happy-admin.css.map */
