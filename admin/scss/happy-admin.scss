@@ -8,6 +8,8 @@ body {
                     }
                     a {
                          .wp-menu-name {
+                            // color:#fff;
+                            
                             span {
                                 background:#505050;
                             }
@@ -22,6 +24,11 @@ body {
                             }
                         }
                     } 
+                    .wp-submenu {
+                        a {
+                            // color:#fff !important;
+                        }
+                    }
                 }              
             }
         }
@@ -50,35 +57,9 @@ body {
                 }
             }
         }
-        a {
-            color:#444;
-        }
-    }
-    &.factory-flat{
-        #adminmenu {
-            li {    
-                &.menu-top {
-                    .update-plugins {
-                        background:#505050;
-                    }
-                    a {
-                        .wp-menu-name {
-                            span {
-                                background:#505050;
-                            }
-                        }
-                        .update-plugins {
-                            background:#505050;
-                        }
-
-                        .wp-menu-image {
-                            
-                            img {
-                                filter: grayscale(1) !important;
-                            }
-                        }
-                    }
-                }              
+        #dashboard-widgets-wrap {
+            a {
+                color:#444;
             }
         }
     }

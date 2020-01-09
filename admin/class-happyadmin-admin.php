@@ -39,11 +39,42 @@ class Happyadmin_Admin {
 	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
-
-
+	
+	/**
+	 * Remove all admin notices
+	 *
+	 * 
+	 */
 	public function remove_admin_notices( ) {
 		remove_all_actions( 'admin_notices' );
 	} 
+
+	/**
+	 * Remove all admin notices
+	 *
+	 * 
+	 */
+	public function remove_admin_columns( $admin_columns ) {
+
+		$columns = array(
+			'wpseo-score',
+			'wpseo-title',
+			'wpseo-metadesc',
+			'wpseo-focuskw',
+			'wpseo-score-readability',
+			'wpseo-links',
+			'ss_social_shares',
+			'mo_openid_delete_profile_data',
+			'ss_social_shares',
+			'heateor_ss_delete_profile_data'
+		);
+
+		foreach ( $columns  as $column) {
+			unset( $admin_columns[$column] );
+		}
+		
+		return $admin_columns;
+	}
 
 	/**
 	 * Initialize the class and set its properties.
@@ -56,9 +87,14 @@ class Happyadmin_Admin {
 
 		$this->Happy_admin = $Happy_admin;
 		$this->version = $version;
-	
+
 		add_action( 'admin_head', array( $this, 'remove_admin_notices' ) );
-		
+
+
+		add_filter ( 'manage_edit-post_columns', array( $this, 'remove_admin_columns' ) );
+		add_filter ( 'manage_edit-page_columns', array( $this, 'remove_admin_columns' ) );
+		add_filter ( 'manage_edit-product_columns', array( $this, 'remove_admin_columns' ) );
+
 
 	}
 

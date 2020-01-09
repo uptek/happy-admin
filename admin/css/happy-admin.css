@@ -14,15 +14,7 @@ body.admin-color-fresh .plugins .active td, body.admin-color-fresh .plugins .act
   background: none; }
 body.admin-color-fresh .plugins .plugin-update-tr.active td {
   border-left-color: #444; }
-body.admin-color-fresh a {
+body.admin-color-fresh #dashboard-widgets-wrap a {
   color: #444; }
-body.factory-flat #adminmenu li.menu-top .update-plugins {
-  background: #505050; }
-body.factory-flat #adminmenu li.menu-top a .wp-menu-name span {
-  background: #505050; }
-body.factory-flat #adminmenu li.menu-top a .update-plugins {
-  background: #505050; }
-body.factory-flat #adminmenu li.menu-top a .wp-menu-image img {
-  filter: grayscale(1) !important; }
 
 /*# sourceMappingURL=happy-admin.css.map */
