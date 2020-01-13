@@ -76,6 +76,16 @@ class Happyadmin_Admin {
 		return $admin_columns;
 	}
 
+	function remove_actions() {
+		$toolbar = $_GET['toolbar'];
+		$js = $_GET['js'];
+		$css = $_GET['css'];
+
+		if ($toolbar == 'off') {
+			show_admin_bar(false);
+		}
+	}
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -94,7 +104,11 @@ class Happyadmin_Admin {
 		add_filter ( 'manage_edit-post_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-page_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-product_columns', array( $this, 'remove_admin_columns' ) );
-
+		
+		add_action('after_setup_theme', array( $this,  'remove_actions') );
+		add_action( 'wp_enqueue_scripts',  array( $this,  'remove_actions') );
+ 
+	
 
 	}
 
