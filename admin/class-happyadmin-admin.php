@@ -97,13 +97,15 @@ class Happyadmin_Admin {
 		$this->Happy_admin = $Happy_admin;
 		$this->version = $version;
 
+		// Remove Notices
 		add_action( 'admin_head', array( $this, 'remove_admin_notices' ) );
-
-
+		
+		// Remove Admin Columns
 		add_filter ( 'manage_edit-post_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-page_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-product_columns', array( $this, 'remove_admin_columns' ) );
 		
+		// Remove Actions
 		add_action('after_setup_theme', array( $this,  'remove_actions') );
 		add_action( 'wp_enqueue_scripts',  array( $this,  'remove_actions') );
  
