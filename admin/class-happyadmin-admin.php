@@ -52,7 +52,6 @@ class Happyadmin_Admin {
 	/**
 	 * Remove all admin notices
 	 *
-	 * 
 	 */
 	public function remove_admin_columns( $admin_columns ) {
 
