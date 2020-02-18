@@ -16,8 +16,7 @@
 /**
  * The core plugin class.
  *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
+ * This is used to define internationalization, admin-specific hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -58,8 +57,6 @@ class happy_admin {
 	protected $version;
 
 	/**
-	 * Define the core functionality of the plugin.
-	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
@@ -87,7 +84,6 @@ class happy_admin {
 	 * - happy_admin_Loader. Orchestrates the hooks of the plugin.
 	 * - happy_admin_i18n. Defines internationalization functionality.
 	 * - happyadmin_Admin. Defines all hooks for the admin area.
-	 * - happy_admin_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -119,8 +115,6 @@ class happy_admin {
 	}
 
 	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
 	 * Uses the happy_admin_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
