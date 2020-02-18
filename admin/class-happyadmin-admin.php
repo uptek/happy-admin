@@ -77,10 +77,12 @@ class Happyadmin_Admin {
 
 	function remove_actions() {
 
-		$toolbar = $_GET['toolbar'];
+		if( isset( $_GET['toolbar'] ) ) {
 
-		if ($toolbar == 'off') {
-			show_admin_bar(false);
+			if ($_GET['toolbar'] == 'off') {
+				show_admin_bar(false);
+			}
+			
 		}
 	}
 
@@ -108,8 +110,6 @@ class Happyadmin_Admin {
 		add_action('after_setup_theme', array( $this,  'remove_actions') );
 		add_action( 'wp_enqueue_scripts',  array( $this,  'remove_actions') );
  
-	
-
 	}
 
 	/**
