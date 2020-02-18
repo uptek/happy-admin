@@ -76,9 +76,8 @@ class Happyadmin_Admin {
 	}
 
 	function remove_actions() {
+
 		$toolbar = $_GET['toolbar'];
-		$js = $_GET['js'];
-		$css = $_GET['css'];
 
 		if ($toolbar == 'off') {
 			show_admin_bar(false);
