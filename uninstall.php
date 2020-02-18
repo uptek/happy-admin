@@ -16,7 +16,7 @@
  * This file may be updated more in future version of the Boilerplate; however, this is the
  * general skeleton and outline for how the file should work.
  * @link       https://junaidahmed.com/happy-admin
- * @since      1.0.0
+ * @since      0.1
  *
  * @package    happy_admin
  */
