@@ -11,7 +11,7 @@
  * Version:           0.1
  * Author:            Junaid Ahmed
  * Author URI:        https://junaidahmed.com/
- * License:           GPL-3.0 or later 
+ * License:           GPL-3.0 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       happy-admin
  * Domain Path:       /languages

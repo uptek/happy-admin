@@ -32,19 +32,21 @@ class Happyadmin_Admin {
 	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
-	
+
 	/**
 	 * Remove all admin notices
+	 *
+	 * @return Boolen remove admin notices
 	 */
-	
 	public function remove_admin_notices( ) {
 		remove_all_actions( 'admin_notices' );
-	} 
+	}
 
 	/**
-	 * Remove all admin notices
+	 * Hook for remove all extra admin columns
+	 *
+	 * @return Object admin columns return after cleanup
 	 */
-
 	public function remove_admin_columns( $admin_columns ) {
 
 		$columns = array(
@@ -63,18 +65,19 @@ class Happyadmin_Admin {
 		foreach ( $columns  as $column) {
 			unset( $admin_columns[$column] );
 		}
-		
+
 		return $admin_columns;
 	}
 
+
+	/**
+	 * Hook for Hide toolbar
+	 *
+	 * @return Object admin columns return after cleanup
+	 */
 	function remove_actions() {
-
-		if( isset( $_GET['toolbar'] ) ) {
-
-			if ($_GET['toolbar'] == 'off') {
-				show_admin_bar(false);
-			}
-			
+		if( isset( $_GET['toolbar'] ) && $_GET['toolbar'] == 'off' ) {
+			show_admin_bar(false);
 		}
 	}
 
@@ -92,16 +95,16 @@ class Happyadmin_Admin {
 
 		// Remove Notices
 		add_action( 'admin_head', array( $this, 'remove_admin_notices' ) );
-		
+
 		// Remove Admin Columns
 		add_filter ( 'manage_edit-post_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-page_columns', array( $this, 'remove_admin_columns' ) );
 		add_filter ( 'manage_edit-product_columns', array( $this, 'remove_admin_columns' ) );
-		
+
 		// Remove Actions
 		add_action('after_setup_theme', array( $this,  'remove_actions') );
 		add_action( 'wp_enqueue_scripts',  array( $this,  'remove_actions') );
- 
+
 	}
 
 	/**
