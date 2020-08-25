@@ -20,17 +20,19 @@
  * @subpackage happy_admin/includes
  * @author     Junaid Ahmed
  */
-class happy_admin_Activator {
+if ( !class_exists( 'happy_admin_Activator' ) ) {
+	class happy_admin_Activator {
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    0.1
-	 */
-	public static function activate() {
+		/**
+		 * Short Description. (use period)
+		 *
+		 * Long Description.
+		 *
+		 * @since    0.1
+		 */
+		public static function activate() {
+
+		}
 
 	}
-
 }

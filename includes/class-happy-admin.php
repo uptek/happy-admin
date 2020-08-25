@@ -26,163 +26,165 @@
  * @subpackage happy_admin/includes
  * @author     Junaid Ahmed
  */
-class happy_admin {
+if ( !class_exists( 'happy_admin' ) ) {
+	class happy_admin {
 
-	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    0.1
-	 * @access   protected
-	 * @var      happy_admin_Loader    $loader    Maintains and registers all hooks for the plugin.
-	 */
-	protected $loader;
+		/**
+		 * The loader that's responsible for maintaining and registering all hooks that power
+		 * the plugin.
+		 *
+		 * @since    0.1
+		 * @access   protected
+		 * @var      happy_admin_Loader    $loader    Maintains and registers all hooks for the plugin.
+		 */
+		protected $loader;
 
-	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    0.1
-	 * @access   protected
-	 * @var      string    $happy_admin    The string used to uniquely identify this plugin.
-	 */
-	protected $happy_admin;
+		/**
+		 * The unique identifier of this plugin.
+		 *
+		 * @since    0.1
+		 * @access   protected
+		 * @var      string    $happy_admin    The string used to uniquely identify this plugin.
+		 */
+		protected $happy_admin;
 
-	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    0.1
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
-	 */
-	protected $version;
+		/**
+		 * The current version of the plugin.
+		 *
+		 * @since    0.1
+		 * @access   protected
+		 * @var      string    $version    The current version of the plugin.
+		 */
+		protected $version;
 
-	/**
-	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
-	 *
-	 * @since    0.1
-	 */
-	public function __construct() {
-		if ( defined( 'happy_admin_VERSION' ) ) {
-			$this->version = happy_admin_VERSION;
-		} else {
-			$this->version = '0.1';
+		/**
+		 * Set the plugin name and the plugin version that can be used throughout the plugin.
+		 * Load the dependencies, define the locale, and set the hooks for the admin area and
+		 * the public-facing side of the site.
+		 *
+		 * @since    0.1
+		 */
+		public function __construct() {
+			if ( defined( 'happy_admin_VERSION' ) ) {
+				$this->version = happy_admin_VERSION;
+			} else {
+				$this->version = '0.1';
+			}
+			$this->happy_admin = 'happy-admin';
+
+			$this->load_dependencies();
+			$this->set_locale();
+			$this->define_admin_hooks();
 		}
-		$this->happy_admin = 'happy-admin';
-
-		$this->load_dependencies();
-		$this->set_locale();
-		$this->define_admin_hooks();
-	}
-
-	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - happy_admin_Loader. Orchestrates the hooks of the plugin.
-	 * - happy_admin_i18n. Defines internationalization functionality.
-	 * - happyadmin_Admin. Defines all hooks for the admin area.
-	 *
-	 * Create an instance of the loader which will be used to register the hooks
-	 * with WordPress.
-	 *
-	 * @since    0.1
-	 * @access   private
-	 */
-	private function load_dependencies() {
 
 		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
+		 * Load the required dependencies for this plugin.
+		 *
+		 * Include the following files that make up the plugin:
+		 *
+		 * - happy_admin_Loader. Orchestrates the hooks of the plugin.
+		 * - happy_admin_i18n. Defines internationalization functionality.
+		 * - happyadmin_Admin. Defines all hooks for the admin area.
+		 *
+		 * Create an instance of the loader which will be used to register the hooks
+		 * with WordPress.
+		 *
+		 * @since    0.1
+		 * @access   private
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-happy-admin-loader.php';
+		private function load_dependencies() {
+
+			/**
+			 * The class responsible for orchestrating the actions and filters of the
+			 * core plugin.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-happy-admin-loader.php';
+
+			/**
+			 * The class responsible for defining internationalization functionality
+			 * of the plugin.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-happy-admin-i18n.php';
+
+			/**
+			 * The class responsible for defining all actions that occur in the admin area.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-happyadmin-admin.php';
+
+			$this->loader = new happy_admin_Loader();
+
+		}
 
 		/**
-		 * The class responsible for defining internationalization functionality
+		 * Uses the happy_admin_i18n class in order to set the domain and to register the hook
+		 * with WordPress.
+		 *
+		 * @since    0.1
+		 * @access   private
+		 */
+		private function set_locale() {
+
+			$plugin_i18n = new happy_admin_i18n();
+
+			$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+
+		}
+
+		/**
+		 * Register all of the hooks related to the admin area functionality
 		 * of the plugin.
+		 *
+		 * @since    0.1
+		 * @access   private
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-happy-admin-i18n.php';
+		private function define_admin_hooks() {
+
+			$plugin_admin = new happyadmin_Admin( $this->get_happy_admin(), $this->get_version() );
+
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		}
 
 		/**
-		 * The class responsible for defining all actions that occur in the admin area.
+		 * Run the loader to execute all of the hooks with WordPress.
+		 *
+		 * @since    0.1
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-happyadmin-admin.php';
+		public function run() {
+			$this->loader->run();
+		}
 
-		$this->loader = new happy_admin_Loader();
+		/**
+		 * The name of the plugin used to uniquely identify it within the context of
+		 * WordPress and to define internationalization functionality.
+		 *
+		 * @since     0.1
+		 * @return    string    The name of the plugin.
+		 */
+		public function get_happy_admin() {
+			return $this->happy_admin;
+		}
+
+		/**
+		 * The reference to the class that orchestrates the hooks with the plugin.
+		 *
+		 * @since     0.1
+		 * @return    happy_admin_Loader    Orchestrates the hooks of the plugin.
+		 */
+		public function get_loader() {
+			return $this->loader;
+		}
+
+		/**
+		 * Retrieve the version number of the plugin.
+		 *
+		 * @since     0.1
+		 * @return    string    The version number of the plugin.
+		 */
+		public function get_version() {
+			return $this->version;
+		}
 
 	}
-
-	/**
-	 * Uses the happy_admin_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    0.1
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		$plugin_i18n = new happy_admin_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
-	}
-
-	/**
-	 * Register all of the hooks related to the admin area functionality
-	 * of the plugin.
-	 *
-	 * @since    0.1
-	 * @access   private
-	 */
-	private function define_admin_hooks() {
-
-		$plugin_admin = new happyadmin_Admin( $this->get_happy_admin(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    0.1
-	 */
-	public function run() {
-		$this->loader->run();
-	}
-
-	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     0.1
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_happy_admin() {
-		return $this->happy_admin;
-	}
-
-	/**
-	 * The reference to the class that orchestrates the hooks with the plugin.
-	 *
-	 * @since     0.1
-	 * @return    happy_admin_Loader    Orchestrates the hooks of the plugin.
-	 */
-	public function get_loader() {
-		return $this->loader;
-	}
-
-	/**
-	 * Retrieve the version number of the plugin.
-	 *
-	 * @since     0.1
-	 * @return    string    The version number of the plugin.
-	 */
-	public function get_version() {
-		return $this->version;
-	}
-
 }

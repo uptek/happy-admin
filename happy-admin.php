@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @link              https://junaidahmed.com/happy-admin
- * @since             0.1
- * @package           happy_admin
- *
  * Plugin Name:       Happy Admin
  * Plugin URI:        https://junaidahmed.com/happy-admin
  * Description:       Happy Admin simplify your WordPress admin.
@@ -15,6 +11,10 @@
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       happy-admin
  * Domain Path:       /languages
+ *
+ * @link              https://junaidahmed.com/happy-admin
+ * @since             0.1
+ * @package           happy_admin
  */
 
 // If this file is called directly, abort.
