@@ -4,7 +4,7 @@
  * Plugin Name:       Happy Admin
  * Plugin URI:        https://junaidahmed.com/happy-admin
  * Description:       Happy Admin simplify your WordPress admin.
- * Version:           0.1
+ * Version:           1.0
  * Author:            Junaid Ahmed
  * Author URI:        https://junaidahmed.com/
  * License:           GPL-3.0 or later
@@ -13,7 +13,7 @@
  * Domain Path:       /languages
  *
  * @link              https://junaidahmed.com/happy-admin
- * @since             0.1
+ * @since             1.0
  * @package           happy_admin
  */
 
@@ -24,10 +24,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 0.1 and use SemVer - https://semver.org
+ * Start at version 1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'happy_admin_VERSION', '0.1' );
+define( 'happy_admin_VERSION', '1.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -63,7 +63,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-happy-admin.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.1
+ * @since    1.0
  */
 function run_happy_admin() {
 

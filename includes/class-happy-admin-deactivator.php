@@ -4,7 +4,7 @@
  * Fired during plugin deactivation
  *
  * @link       https://junaidahmed.com/happy-admin
- * @since      0.1
+ * @since      1.0
  *
  * @package    happy_admin
  * @subpackage happy_admin/includes
@@ -15,7 +15,7 @@
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *
- * @since      0.1
+ * @since      1.0
  * @package    happy_admin
  * @subpackage happy_admin/includes
  * @author     Junaid Ahmed
@@ -28,7 +28,7 @@ if ( !class_exists( 'happy_admin_Deactivator' ) ) {
 		 *
 		 * Long Description.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 */
 		public static function deactivate() {
 

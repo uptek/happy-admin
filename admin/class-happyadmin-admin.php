@@ -2,7 +2,7 @@
 
 /**
  * @link       http:/junaidahmed.com/
- * @since      0.1
+ * @since      1.0
  *
  * @package    Happy_admin
  * @subpackage Happy_admin/admin
@@ -19,7 +19,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		/**
 		 * The ID of this plugin.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 * @access   private
 		 * @var      string    $Happy_admin    The ID of this plugin.
 		 */
@@ -28,7 +28,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		/**
 		 * The version of this plugin.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 * @access   private
 		 * @var      string    $version    The current version of this plugin.
 		 */
@@ -85,7 +85,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		/**
 		 * Initialize the class and set its properties.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 * @param string  $Happy_admin  The name of this plugin.
 		 * @param string  $version      The version of this plugin.
 		 */
@@ -111,7 +111,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		/**
 		 * Register the stylesheets for the admin area.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( $this->Happy_admin, plugin_dir_url( __FILE__ ) . 'css/happy-admin.css', array(), $this->version, 'all' );
@@ -120,7 +120,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		/**
 		 * Register the JavaScript for the admin area.
 		 *
-		 * @since    0.1
+		 * @since    1.0
 		 */
 		public function enqueue_scripts() {
 			wp_enqueue_script( $this->Happy_admin, plugin_dir_url( __FILE__ ) . 'js/happy-admin.js', array( 'jquery' ), $this->version, false );
