@@ -48,7 +48,6 @@ function deactivate_happy_admin() {
 }
 
 register_activation_hook( __FILE__, 'activate_happy_admin' );
-register_deactivation_hook( __FILE__, 'deactivate_happy_admin' );
 
 /**
  * The core plugin class that is used to define internationalization,
