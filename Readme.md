@@ -1,6 +1,6 @@
  # Happy Admin #
 **Contributors:** Junaid Ahmed <br/>
-**Donate link:** https://juanidahmed.com/wp-plugin/happy-ad,om <br/>
+**Donate link:** https://juanidahmed.com/wp-plugin/happy-admin <br/>
 **Tags:** admin, WordPress admin <br/>
 **Requires at least:** 5.2
 **Tested up to:** 5.3.2 <br/>
