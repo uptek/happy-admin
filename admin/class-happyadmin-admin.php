@@ -78,7 +78,7 @@ if ( !class_exists( 'Happyadmin_Admin' ) ) {
 		 */
 		function remove_actions() {
 			if( isset( $_GET['toolbar'] ) && $_GET['toolbar'] == 'off' ) {
-				show_admin_bar(false);
+				add_filter( 'show_admin_bar', '__return_false' );
 			}
 		}
 
