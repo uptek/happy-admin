@@ -31,6 +31,7 @@ Sometimes you may want to remove the adminbar, it can be because you may want to
 = Minimum requirements =
 
 * PHP 7.2 or greater is recommended
+* WordPress 5.2 is recommended
 
 = Automatic Installation =
 
