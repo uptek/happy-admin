@@ -20,19 +20,18 @@
  * @subpackage happy_admin/includes
  * @author     Junaid Ahmed
  */
-if ( !class_exists( 'happy_admin_Activator' ) ) {
-	class happy_admin_Activator {
 
-		/**
-		 * Short Description. (use period)
-		 *
-		 * Long Description.
-		 *
-		 * @since    1.0
-		 */
-		public static function activate() {
+ if ( class_exists( 'Happy_Admin_Activator' ) ) {
+	return;
+ }
 
-		}
-
+class Happy_Admin_Activator {
+	/**
+	 * Executes plugin activation processes.
+	 *
+	 * @since 1.0
+	 */
+	static function activate() {
+		// TODO: Implemente activate functionality.
 	}
 }

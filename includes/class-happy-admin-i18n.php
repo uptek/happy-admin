@@ -24,26 +24,18 @@
  * @subpackage Happy_admin/includes
  * @author     Junaid Ahmed
  */
-if ( !class_exists( 'Happy_admin_i18n' ) ) {
-	class Happy_admin_i18n {
 
+if ( class_exists( 'Happy_Admin_i18n' ) ) {
+	return;
+}
 
-		/**
-		 * Load the plugin text domain for translation.
-		 *
-		 * @since    1.0
-		 */
-		public function load_plugin_textdomain() {
-
-			// load_plugin_textdomain(
-			// 	'happy-admin',
-			// 	false,
-			// 	dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
-			// );
-
-		}
-
-
-
+class Happy_Admin_i18n {
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @since 1.0
+	 */
+	function load_plugin_textdomain() {
+		// TODO: Implement localization proccesses.
 	}
 }
