@@ -2,9 +2,9 @@
 Contributors: Junaid Ahmed
 Donate link: https://juanidahmed.com
 Tags: admin, WordPress admin
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Requires at least: 5.2
+Tested up to: 5.3.2
+Stable tag: 5.3.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
