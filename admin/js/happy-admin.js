@@ -1,13 +1,45 @@
-jQuery(document).keydown(function (event) {
-	// If Control or Command key is pressed and the S key is pressed
-	// run save function. 83 is the key code for S.
-	if ((event.ctrlKey || event.metaKey) && event.which == 83) {
-		// Save Function
-		jQuery('input[type="submit"]').trigger('click');
-		jQuery('.editor-post-publish-panel__toggle').trigger('click');
-		jQuery('.editor-post-publish-button').trigger('click');
-		
-		return false;
+(function($) {
+
+	var DOMStrings = {};
+	var DOMElements = {};
+
+	var triggerables = [];
+
+	$(document).on('keydown', function(event) {
+		if (isControlAndEnter(event)) {
+			triggerClickOnTriggerables(triggerables);
+		}
+	});
+
+	DOMStrings = {
+		submit: 'input[type="submit"]',
+		publish: '.editor-post-publish-button',
+		publishToggle: '.editor-post-publish-panel__toggle',
+	};
+
+	DOMElements = {
+		submit: $(DOMStrings.submit),
+		publish: $(DOMStrings.publish),
+		publishToggle: $(DOMStrings.publishToggle),
+	};
+
+	triggerables = [
+		DOMElements.submit,
+		DOMElements.publish,
+		DOMElements.publishToggle,
+	];
+
+	function isControlAndEnter(event) {
+		var isEnterKey = event.key.toLowerCase() === 'enter';
+		var hasControlKeyPressed = event.ctrlKey || event.metaKey;
+
+		return hasControlKeyPressed && isEnterKey;
 	}
-}
-);
+
+	function triggerClickOnTriggerables(triggerables) {
+		triggerables.forEach(function(triggerable) {
+			triggerable.trigger('click');
+		});
+	}
+
+})(jQuery);
