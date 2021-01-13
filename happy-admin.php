@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'happy_admin_VERSION', '1.0' );
+define( 'HAPPY_ADMIN_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -35,8 +35,10 @@ define( 'happy_admin_VERSION', '1.0' );
  */
 function activate_happy_admin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-happy-admin-activator.php';
-	happy_admin_Activator::activate();
+	Happy_Admin_Activator::activate();
 }
+
+register_activation_hook( __FILE__, 'activate_happy_admin' );
 
 /**
  * The code that runs during plugin deactivation.
@@ -44,10 +46,10 @@ function activate_happy_admin() {
  */
 function deactivate_happy_admin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-happy-admin-deactivator.php';
-	happy_admin_Deactivator::deactivate();
+	Happy_Admin_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_happy_admin' );
+register_deactivation_hook( __FILE__, 'deactivate_happy_admin' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -64,10 +66,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-happy-admin.php';
  *
  * @since    1.0
  */
-function run_happy_admin() {
-
-	$plugin = new happy_admin();
+function happy_admin_run() {
+	$plugin = new Happy_Admin();
 	$plugin->run();
-
 }
-run_happy_admin();
+
+happy_admin_run();
