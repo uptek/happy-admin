@@ -2,17 +2,17 @@
 
 /**
  * Plugin Name:       Happy Admin
- * Plugin URI:        https://junaidahmed.com/happy-admin
+ * Plugin URI:        https://github.com/uptek/happy-admin
  * Description:       Happy Admin simplify your WordPress admin.
- * Version:           1.0
+ * Version:           1.0.0
  * Author:            Junaid Ahmed
- * Author URI:        https://junaidahmed.com/
+ * Author URI:        https://uptek.com
  * License:           GPL-3.0 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       happy-admin
  * Domain Path:       /languages
  *
- * @link              https://junaidahmed.com/happy-admin
+ * @link              https://github.com/uptek/happy-admin
  * @since             1.0
  * @package           happy_admin
  */
