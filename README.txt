@@ -28,7 +28,12 @@ Happy Admin automatically removes all the clutter and dim the high contrast elem
 
 = Remove adminbar =
 
-Sometimes you may want to remove the adminbar, it can be because you may want to check the layout or anything that's related to styling. You can do that by passing `?toolbar=off` to the URL and pressing enter. Your URL should look something like this 'https://domain.example/?toolbar=off'.
+Sometimes you may want to remove the adminbar, it can be because you may want to check the layout or anything that's related to styling. You can do that by passing `?toolbar=off` to the URL and pressing enter. Your URL should look something like this 'https://domain.test/?toolbar=off'.
+
+== FAQ ==
+
+= How to configure Happy Admin? =
+You don't! You only need to activate the plugin and it will take care of the rest.
 
 == Installation ==
 
@@ -40,11 +45,6 @@ Sometimes you may want to remove the adminbar, it can be because you may want to
 = Automatic Installation =
 
 Automatic Installation is the easiest way to install the plugin. Signin to your WordPress dashboard, go to plugins and search for `Happy Admin.` Simply click on `install now` to install the plugin.
-
-== Frequently Asked Questions ==
-
-= How to configure Happy Admin? =
-You don't! You only need to activate the plugin and it will take care of the rest.
 
 == Screenshots ==
 
